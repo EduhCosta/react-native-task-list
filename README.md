@@ -2,5 +2,7 @@
 
 Projeto de estudo e teste de uso dos componentes
 
----
-[2019]
+##  Cases
+
+- AsyncStorage - Armazenamento no aparelho sem uso de API.
+- Swipeable - Componente de slide actions.
