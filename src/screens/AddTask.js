@@ -59,14 +59,18 @@ const styles = StyleSheet.create({
   }
 });
 
-
-const initialState = {
-  desc: '',
-  date: new Date()
-};
-
 class AddTask extends React.Component {
-  state = { ...initialState };
+  constructor(props) {
+    super(props)
+    this.state = this.getInitialState()
+  }
+
+  getInitialState = () => {
+    return {
+      desc: '',
+      date: new Date()
+    }
+  }
 
   render() {
     let datePicker = null
@@ -94,6 +98,7 @@ class AddTask extends React.Component {
         visible={this.props.isVisible}
         animationType='slide'
         transparent={true}
+        onShow={() => this.setState({ ...this.getInitialState() })}
       >
         <TouchableWithoutFeedback onPress={this.props.onCancel}>
           <View style={styles.offset} />
@@ -144,7 +149,7 @@ class AddTask extends React.Component {
     }
     const data = { ...this.state };
     this.props.onSave(data);
-    this.setState({ ...initialState });
+    this.setState({ ...this.getInitialState() });
   }
 };
 
